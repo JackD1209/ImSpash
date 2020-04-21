@@ -18,4 +18,6 @@ class Photo {
     var profileImage: String = ""
     var photoURLThumb: String = ""
     var photoURLFull: String = ""
+    var photoURLRegular: String = ""
+    var isFavourite: Bool = false
 }

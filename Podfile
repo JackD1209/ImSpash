@@ -9,7 +9,6 @@ target 'ImSplash' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
-  pod 'MBProgressHUD'
   pod 'Hero'
 
 end

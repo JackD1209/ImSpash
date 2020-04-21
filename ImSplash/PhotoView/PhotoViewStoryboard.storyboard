@@ -1,7 +1,154 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-bold-58646a511e3d9.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--PhotoViewViewController-->
+        <scene sceneID="38R-Vk-Kpz">
+            <objects>
+                <viewController storyboardIdentifier="PhotoViewViewController" title="PhotoViewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ewy-er-fxI" customClass="PhotoViewViewController" customModule="ImSplash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lqb-hI-58H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel_icon" translatesAutoresizingMaskIntoConstraints="NO" id="hSH-Vb-HwV">
+                                <rect key="frame" x="36" y="100" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="TH0-Q2-Sdf"/>
+                                    <constraint firstAttribute="width" secondItem="hSH-Vb-HwV" secondAttribute="height" multiplier="1:1" id="V3V-lF-abM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvt-1q-OQa">
+                                <rect key="frame" x="19" y="83" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rvt-1q-OQa" secondAttribute="height" multiplier="1:1" id="4hC-OS-iga"/>
+                                    <constraint firstAttribute="width" constant="46" id="QBH-VZ-5Ut"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" destination="ewy-er-fxI" eventType="touchUpInside" id="QNY-bu-Bqm"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4uj-na-YIe">
+                                <rect key="frame" x="0.0" y="152" width="414" height="616"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkN-Jq-lyP">
+                                <rect key="frame" x="0.0" y="768" width="414" height="128"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9pC-Qs-XrY">
+                                        <rect key="frame" x="30" y="44" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="65b-ES-2l1"/>
+                                            <constraint firstAttribute="width" secondItem="9pC-Qs-XrY" secondAttribute="height" multiplier="1:1" id="6NP-UL-zaC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rCW-eq-hl9">
+                                        <rect key="frame" x="80" y="45" width="43" height="38.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAo-Ve-j6n">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-7O-06m">
+                                                <rect key="frame" x="0.0" y="20.5" width="43" height="18"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                                <color key="textColor" red="0.49411764705882355" green="0.55686274509803924" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qpu-Cf-zhZ">
+                                        <rect key="frame" x="364" y="54" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="RN6-LT-reu"/>
+                                            <constraint firstAttribute="width" secondItem="Qpu-Cf-zhZ" secondAttribute="height" multiplier="1:1" id="q0a-6V-oNd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download_icon" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-zr-xlu">
+                                        <rect key="frame" x="314" y="54" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EsV-zr-xlu" secondAttribute="height" multiplier="1:1" id="9uV-Ns-Xfi"/>
+                                            <constraint firstAttribute="width" constant="20" id="pjt-Ae-kOd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="web-be-MNR">
+                                        <rect key="frame" x="351" y="41" width="46" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="web-be-MNR" secondAttribute="height" multiplier="1:1" id="Ybf-t6-rmc"/>
+                                            <constraint firstAttribute="width" constant="46" id="xn9-Xm-ml4"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="favouriteButtonClicked:" destination="ewy-er-fxI" eventType="touchUpInside" id="8iO-Xe-DaV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjy-NN-i5o">
+                                        <rect key="frame" x="301" y="41" width="46" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="gSm-AU-Fuc"/>
+                                            <constraint firstAttribute="width" secondItem="Tjy-NN-i5o" secondAttribute="height" multiplier="1:1" id="haa-39-Lz8"/>
+                                        </constraints>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Tjy-NN-i5o" firstAttribute="centerX" secondItem="EsV-zr-xlu" secondAttribute="centerX" id="Ca4-3L-qc2"/>
+                                    <constraint firstItem="Tjy-NN-i5o" firstAttribute="centerY" secondItem="EsV-zr-xlu" secondAttribute="centerY" id="Hr2-8S-twk"/>
+                                    <constraint firstItem="9pC-Qs-XrY" firstAttribute="centerY" secondItem="NkN-Jq-lyP" secondAttribute="centerY" id="LCc-4e-apP"/>
+                                    <constraint firstItem="web-be-MNR" firstAttribute="centerX" secondItem="Qpu-Cf-zhZ" secondAttribute="centerX" id="Nro-VF-UUn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qpu-Cf-zhZ" secondAttribute="trailing" constant="30" id="UJs-XJ-Uyu"/>
+                                    <constraint firstItem="EsV-zr-xlu" firstAttribute="centerY" secondItem="Qpu-Cf-zhZ" secondAttribute="centerY" id="bxq-kA-3Mn"/>
+                                    <constraint firstItem="9pC-Qs-XrY" firstAttribute="leading" secondItem="NkN-Jq-lyP" secondAttribute="leading" constant="30" id="fbs-9T-OJA"/>
+                                    <constraint firstItem="Qpu-Cf-zhZ" firstAttribute="centerY" secondItem="NkN-Jq-lyP" secondAttribute="centerY" id="mTC-we-T8C"/>
+                                    <constraint firstItem="Qpu-Cf-zhZ" firstAttribute="leading" secondItem="EsV-zr-xlu" secondAttribute="trailing" constant="30" id="rLM-2a-cNF"/>
+                                    <constraint firstItem="rCW-eq-hl9" firstAttribute="leading" secondItem="9pC-Qs-XrY" secondAttribute="trailing" constant="10" id="tKV-CG-JRO"/>
+                                    <constraint firstItem="web-be-MNR" firstAttribute="centerY" secondItem="Qpu-Cf-zhZ" secondAttribute="centerY" id="ty4-Wf-7Z4"/>
+                                    <constraint firstAttribute="height" constant="128" id="uCp-vw-LJv"/>
+                                    <constraint firstItem="rCW-eq-hl9" firstAttribute="centerY" secondItem="9pC-Qs-XrY" secondAttribute="centerY" id="vsR-W1-yrb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NkN-Jq-lyP" firstAttribute="leading" secondItem="CJB-iL-Htx" secondAttribute="leading" id="61j-Xi-etB"/>
+                            <constraint firstItem="CJB-iL-Htx" firstAttribute="trailing" secondItem="NkN-Jq-lyP" secondAttribute="trailing" id="CCa-o8-s4N"/>
+                            <constraint firstItem="hSH-Vb-HwV" firstAttribute="leading" secondItem="CJB-iL-Htx" secondAttribute="leading" constant="36" id="EhF-dq-t2I"/>
+                            <constraint firstItem="hSH-Vb-HwV" firstAttribute="top" secondItem="CJB-iL-Htx" secondAttribute="top" constant="56" id="Kpe-5q-z1w"/>
+                            <constraint firstItem="4uj-na-YIe" firstAttribute="top" secondItem="hSH-Vb-HwV" secondAttribute="bottom" constant="40" id="Ktf-Dw-5Z6"/>
+                            <constraint firstItem="CJB-iL-Htx" firstAttribute="trailing" secondItem="4uj-na-YIe" secondAttribute="trailing" id="Lzd-Bw-5r9"/>
+                            <constraint firstAttribute="bottom" secondItem="NkN-Jq-lyP" secondAttribute="bottom" id="Ne4-A4-HO5"/>
+                            <constraint firstItem="NkN-Jq-lyP" firstAttribute="top" secondItem="4uj-na-YIe" secondAttribute="bottom" id="Yz2-aA-A0M"/>
+                            <constraint firstItem="rvt-1q-OQa" firstAttribute="centerX" secondItem="hSH-Vb-HwV" secondAttribute="centerX" id="dMX-KU-3m1"/>
+                            <constraint firstItem="rvt-1q-OQa" firstAttribute="centerY" secondItem="hSH-Vb-HwV" secondAttribute="centerY" id="eyK-yS-slr"/>
+                            <constraint firstItem="4uj-na-YIe" firstAttribute="leading" secondItem="CJB-iL-Htx" secondAttribute="leading" id="ndL-FI-hmL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CJB-iL-Htx"/>
+                    </view>
+                    <connections>
+                        <outlet property="favouriteImageView" destination="Qpu-Cf-zhZ" id="hAW-yV-bXZ"/>
+                        <outlet property="imageView" destination="4uj-na-YIe" id="T25-7X-S0N"/>
+                        <outlet property="profileImageView" destination="9pC-Qs-XrY" id="2ZO-zJ-CuC"/>
+                        <outlet property="profileNameLabel" destination="sAo-Ve-j6n" id="aWb-Vd-kbX"/>
+                        <outlet property="profileUsernameLabel" destination="1ti-7O-06m" id="NeL-CB-s0M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FvJ-ld-moe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="57"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel_icon" width="12" height="12"/>
+        <image name="download_icon" width="20" height="22"/>
+        <image name="favourite_icon" width="23" height="21"/>
+    </resources>
 </document>

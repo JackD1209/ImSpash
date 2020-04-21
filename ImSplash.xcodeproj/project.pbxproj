@@ -24,6 +24,8 @@
 		CF1189F0244E96F2000F3D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1189EE244E96F2000F3D6A /* Main.storyboard */; };
 		CF118A0A244EBE76000F3D6A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF118A09244EBE76000F3D6A /* Photo.swift */; };
 		CF118A0D244EC4DE000F3D6A /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF118A0C244EC4DE000F3D6A /* PinterestLayout.swift */; };
+		CF118A29244EE8F0000F3D6A /* sf-ui-display-heavy-586470160b9e5.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF118A27244EE8F0000F3D6A /* sf-ui-display-heavy-586470160b9e5.otf */; };
+		CF118A2A244EE8F0000F3D6A /* sf-ui-display-bold-58646a511e3d9.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF118A28244EE8F0000F3D6A /* sf-ui-display-bold-58646a511e3d9.otf */; };
 		CF5518A8244E86610082090C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5518A7244E86610082090C /* AppDelegate.swift */; };
 		CF5518AA244E86610082090C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5518A9244E86610082090C /* SceneDelegate.swift */; };
 		CF5518B1244E86610082090C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5518B0244E86610082090C /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		CF1189EF244E96F2000F3D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF118A09244EBE76000F3D6A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		CF118A0C244EC4DE000F3D6A /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		CF118A27244EE8F0000F3D6A /* sf-ui-display-heavy-586470160b9e5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-heavy-586470160b9e5.otf"; sourceTree = "<group>"; };
+		CF118A28244EE8F0000F3D6A /* sf-ui-display-bold-58646a511e3d9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-bold-58646a511e3d9.otf"; sourceTree = "<group>"; };
 		CF5518A4244E86610082090C /* ImSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5518A7244E86610082090C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5518A9244E86610082090C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +148,15 @@
 			path = Layouts;
 			sourceTree = "<group>";
 		};
+		CF118A26244EE8C5000F3D6A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CF118A28244EE8F0000F3D6A /* sf-ui-display-bold-58646a511e3d9.otf */,
+				CF118A27244EE8F0000F3D6A /* sf-ui-display-heavy-586470160b9e5.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CF55189B244E86610082090C = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +178,7 @@
 		CF5518A6244E86610082090C /* ImSplash */ = {
 			isa = PBXGroup;
 			children = (
+				CF118A26244EE8C5000F3D6A /* Fonts */,
 				CF118A08244EBE60000F3D6A /* Model */,
 				CF1189E7244E9401000F3D6A /* Utilities */,
 				CF1189CF244E8CF1000F3D6A /* UnsplashHome */,
@@ -255,6 +269,8 @@
 				CF1189F0244E96F2000F3D6A /* Main.storyboard in Resources */,
 				CF5518B1244E86610082090C /* Assets.xcassets in Resources */,
 				CF1189DA244E8D94000F3D6A /* PhotoViewStoryboard.storyboard in Resources */,
+				CF118A29244EE8F0000F3D6A /* sf-ui-display-heavy-586470160b9e5.otf in Resources */,
+				CF118A2A244EE8F0000F3D6A /* sf-ui-display-bold-58646a511e3d9.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

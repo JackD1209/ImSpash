@@ -14,15 +14,8 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
 
     func setupCell(photo: Photo) {
-        if let imageURL = URL(string: photo.photoURLThumb) {
-            var imageResource = ImageResource(downloadURL: imageURL)
-            imageResource = ImageResource(downloadURL: imageURL, cacheKey: photo.id)
-            imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with: imageResource)
-        }
-        
-        imageView.layer.cornerRadius = 8
-        imageView.layer.masksToBounds = true
+        Utilities.loadImage(url: photo.photoURLThumb, imageView: imageView, id: "\(photo.id)+Thumb")
+        imageView.roundCorner()
         layoutIfNeeded()
     }
 }

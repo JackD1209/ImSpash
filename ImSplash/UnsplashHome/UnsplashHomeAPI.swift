@@ -46,10 +46,11 @@ class UnsplashHomeAPI {
             photo.id = jsonPhoto["id"].stringValue
             photo.photoHeight = CGFloat(jsonPhoto["height"].intValue * photoWidth / jsonPhoto["width"].intValue)
             photo.profileName = jsonPhoto["user"]["name"].stringValue
-            photo.profileUsername = jsonPhoto["user"]["twitter_username"].stringValue
+            photo.profileUsername = jsonPhoto["user"]["username"].stringValue
             photo.profileImage = jsonPhoto["user"]["profile_image"]["small"].stringValue
             photo.photoURLThumb = jsonPhoto["urls"]["raw"].stringValue
             photo.photoURLFull = jsonPhoto["urls"]["full"].stringValue
+            photo.photoURLRegular = jsonPhoto["urls"]["regular"].stringValue
                         
             photos.append(photo)
         }

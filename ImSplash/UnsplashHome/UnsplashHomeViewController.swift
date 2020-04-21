@@ -66,7 +66,6 @@ extension UnsplashHomeViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UnsplashHomeCollectionViewCell", for: indexPath) as! UnsplashHomeCollectionViewCell
         cell.setupCell(photo: photos[indexPath.row])
-        
         return cell
     }
     
@@ -74,17 +73,25 @@ extension UnsplashHomeViewController: UICollectionViewDelegate, UICollectionView
         return CGSize(width: photoThumbSize, height: photoThumbSize)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height {
-            if !isWating {
-                currentPage += 1
-                loadData()
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "PhotoViewStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "PhotoViewViewController") as! PhotoViewViewController
+        vc.photo = photos[indexPath.row]
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let offsetY = scrollView.contentOffset.y
+//        let contentHeight = scrollView.contentSize.height
+//
+//        if offsetY > contentHeight - scrollView.frame.height {
+//            if !isWating {
+//                currentPage += 1
+//                loadData()
+//            }
+//        }
+//    }
 }
 
 extension UnsplashHomeViewController: PinterestLayoutDelegate {
