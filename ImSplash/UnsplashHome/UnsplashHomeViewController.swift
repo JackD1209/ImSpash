@@ -55,6 +55,11 @@ class UnsplashHomeViewController: UIViewController {
     }
     
     @IBAction func downloadButtonClicked(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "CollectionsStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "CollectionsViewController") as! CollectionsViewController
+        vc.photos = photos
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
 }
 
