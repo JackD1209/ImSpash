@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F7C14FFD9E820A5A221876B /* libPods-ImSplash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED6E358B883FA9B0A639280D /* libPods-ImSplash.a */; };
 		CF1189D1244E8D23000F3D6A /* UnsplashHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1189D0244E8D23000F3D6A /* UnsplashHomeViewController.swift */; };
 		CF1189D3244E8D35000F3D6A /* UnsplashHomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1189D2244E8D35000F3D6A /* UnsplashHomeStoryboard.storyboard */; };
 		CF1189D5244E8D4B000F3D6A /* UnsplashHomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1189D4244E8D4B000F3D6A /* UnsplashHomeAPI.swift */; };
@@ -29,11 +30,9 @@
 		CF5518AA244E86610082090C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5518A9244E86610082090C /* SceneDelegate.swift */; };
 		CF5518B1244E86610082090C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5518B0244E86610082090C /* Assets.xcassets */; };
 		CF5518B4244E86610082090C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5518B2244E86610082090C /* LaunchScreen.storyboard */; };
-		CFE4ADCA244FC57400D1B8A7 /* Pods_ImSplash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DC4BFECCF9F7BC8830A802 /* Pods_ImSplash.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03DC4BFECCF9F7BC8830A802 /* Pods_ImSplash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImSplash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4BCC43CB875E7483D46EDA /* Pods-ImSplash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImSplash.debug.xcconfig"; path = "Target Support Files/Pods-ImSplash/Pods-ImSplash.debug.xcconfig"; sourceTree = "<group>"; };
 		CF1189D0244E8D23000F3D6A /* UnsplashHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashHomeViewController.swift; sourceTree = "<group>"; };
 		CF1189D2244E8D35000F3D6A /* UnsplashHomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UnsplashHomeStoryboard.storyboard; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		CF5518B0244E86610082090C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF5518B3244E86610082090C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF5518B5244E86610082090C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED6E358B883FA9B0A639280D /* libPods-ImSplash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImSplash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFAF3D094EA0B1592C67E44E /* Pods-ImSplash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImSplash.release.xcconfig"; path = "Target Support Files/Pods-ImSplash/Pods-ImSplash.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFE4ADCA244FC57400D1B8A7 /* Pods_ImSplash.framework in Frameworks */,
+				5F7C14FFD9E820A5A221876B /* libPods-ImSplash.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +198,7 @@
 		D092557E095718C5F1451132 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03DC4BFECCF9F7BC8830A802 /* Pods_ImSplash.framework */,
+				ED6E358B883FA9B0A639280D /* libPods-ImSplash.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -214,7 +214,6 @@
 				CF5518A0244E86610082090C /* Sources */,
 				CF5518A1244E86610082090C /* Frameworks */,
 				CF5518A2244E86610082090C /* Resources */,
-				01D93EE35CDA7224A8914363 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,23 +276,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01D93EE35CDA7224A8914363 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ImSplash/Pods-ImSplash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ImSplash/Pods-ImSplash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImSplash/Pods-ImSplash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		01FB1CF9D092C929109A21A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

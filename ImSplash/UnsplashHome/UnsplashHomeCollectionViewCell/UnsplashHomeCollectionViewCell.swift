@@ -20,12 +20,16 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
     private var photo: Photo!
     
     func setupCell(photo: Photo) {
-        Utilities.loadImage(url: photo.photoURLThumb, imageView: imageView, id: "\(photo.id)+Thumb")
         imageView.roundCorner()
         layoutIfNeeded()
+        
+        Utilities.loadImage(url: photo.photoURLThumb, imageView: imageView, id: "\(photo.id)+Thumb")
     }
     
     func setupCellForDownload(photo: Photo) {
+        containerView.roundCorner()
+        layoutIfNeeded()
+        
         self.photo = photo
         if photo.isLocal {
             getImageFromDirectory(fileName: photo.photoURLFull)
@@ -40,9 +44,6 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
         } else {
             downloadView.isHidden = true
         }
-        
-        containerView.roundCorner()
-        layoutIfNeeded()
     }
     
     func getImageFromDirectory(fileName: String) {

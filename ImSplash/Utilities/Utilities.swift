@@ -19,7 +19,8 @@ struct Utilities {
             var imageResource = ImageResource(downloadURL: imageURL)
             imageResource = ImageResource(downloadURL: imageURL, cacheKey: id)
             imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with: imageResource) { result in
+            let processor = RoundCornerImageProcessor(cornerRadius: 8)
+            imageView.kf.setImage(with: imageResource, placeholder: nil, options: [.processor(processor)]) { result in
                switch result {
                case .success(let value):
                    imageView.imageWithFade = value.image
