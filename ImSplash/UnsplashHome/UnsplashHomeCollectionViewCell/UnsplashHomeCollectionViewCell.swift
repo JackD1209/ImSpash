@@ -15,7 +15,7 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var downloadView: UIView!
     @IBOutlet weak var downloadLabel: UILabel!
-    @IBOutlet weak var favouriteImageView: UIImageView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     
     private var photo: Photo!
     
@@ -27,20 +27,49 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
     
     func setupCellForDownload(photo: Photo) {
         self.photo = photo
-        Utilities.loadImage(url: photo.photoURLThumb, imageView: imageView, id: "\(photo.id)+Thumb")
+        if photo.isLocal {
+            getImageFromDirectory(fileName: photo.photoURLFull)
+        } else {
+            Utilities.loadImage(url: photo.photoURLThumb, imageView: imageView, id: "\(photo.id)+Thumb")
+        }
         
-        favouriteImageView.image = photo.isFavourite ? UIImage(named: "favourite_icon_filled") : UIImage(named: "favourite_icon")
+        favoriteImageView.image = photo.isFavorite ? UIImage(named: "favorite_icon_filled") : UIImage(named: "favorite_icon")
+        if photo.isDownloading {
+            downloadView.isHidden = false
+            downloadLabel.text = photo.downloadProgress
+        } else {
+            downloadView.isHidden = true
+        }
+        
         containerView.roundCorner()
         layoutIfNeeded()
     }
     
-    @IBAction func favouriteButtonClicked(_ sender: Any) {
-        if favouriteImageView.image == UIImage(named: "favourite_icon") {
-            favouriteImageView.image = UIImage(named: "favourite_icon_filled")
-            photo.isFavourite = true
+    func getImageFromDirectory(fileName: String) {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let url = URL(string: fileName)
+        let fileURL = documentsUrl!.appendingPathComponent(url!.lastPathComponent)
+        var imageData : Data?
+        do {
+            imageData = try Data(contentsOf: fileURL)
+            imageView.image = UIImage(data: imageData ?? Data())
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        if favoriteImageView.image == UIImage(named: "favorite_icon") {
+            favoriteImageView.image = UIImage(named: "favorite_icon_filled")
+            photo.isFavorite = true
         } else {
-            favouriteImageView.image = UIImage(named: "favourite_icon")
-            photo.isFavourite = false
+            favoriteImageView.image = UIImage(named: "favorite_icon")
+            photo.isFavorite = false
+        }
+        
+        if photo.isLocal {
+            Utilities.updateLocalImages(photo: photo)
         }
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,11 +17,11 @@
             <objects>
                 <viewController storyboardIdentifier="CollectionsViewController" title="CollectionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dnr-Gl-AaX" customClass="CollectionsViewController" customModule="ImSplash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ihd-WD-Ftd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D9Z-te-foJ">
-                                <rect key="frame" x="30" y="195" width="354" height="667"/>
+                                <rect key="frame" x="30" y="151" width="540" height="449"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cNc-O7-tsN" customClass="PinterestLayout" customModule="ImSplash" customModuleProvider="target">
                                     <size key="itemSize" width="128" height="128"/>
@@ -48,7 +47,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUA-cJ-0TF">
-                                                                    <rect key="frame" x="22" y="45" width="84" height="38.5"/>
+                                                                    <rect key="frame" x="25" y="45.5" width="78.5" height="37.5"/>
                                                                     <fontDescription key="fontDescription" name="SFUIDisplay-Heavy" family="SF UI Display" pointSize="32"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -60,7 +59,7 @@
                                                                 <constraint firstItem="eUA-cJ-0TF" firstAttribute="centerY" secondItem="kkf-o7-0xk" secondAttribute="centerY" id="oj9-gj-j8U"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9Mw-hw-lmY">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9Mw-hw-lmY">
                                                             <rect key="frame" x="100" y="100" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="84k-Y2-Mz0"/>
@@ -74,7 +73,7 @@
                                                                 <constraint firstAttribute="width" secondItem="WYi-7O-Tt8" secondAttribute="height" multiplier="1:1" id="UDD-lm-EbT"/>
                                                             </constraints>
                                                             <connections>
-                                                                <action selector="favouriteButtonClicked:" destination="MVV-Hj-u8g" eventType="touchUpInside" id="Kh9-es-Ey9"/>
+                                                                <action selector="favoriteButtonClicked:" destination="MVV-Hj-u8g" eventType="touchUpInside" id="Kh9-es-Ey9"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -106,7 +105,7 @@
                                             <outlet property="containerView" destination="Dlr-pT-aEa" id="gbU-Ri-qQm"/>
                                             <outlet property="downloadLabel" destination="eUA-cJ-0TF" id="tFl-kQ-4Yo"/>
                                             <outlet property="downloadView" destination="kkf-o7-0xk" id="9UJ-kg-kJu"/>
-                                            <outlet property="favouriteImageView" destination="9Mw-hw-lmY" id="LUg-RE-ygd"/>
+                                            <outlet property="favoriteImageView" destination="9Mw-hw-lmY" id="LUg-RE-ygd"/>
                                             <outlet property="imageView" destination="OhW-R4-jMn" id="oBw-T6-7qT"/>
                                         </connections>
                                     </collectionViewCell>
@@ -117,10 +116,10 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Z7n-TT-kMx">
-                                <rect key="frame" x="40" y="152" width="334" height="18"/>
+                                <rect key="frame" x="40" y="108" width="520" height="18"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bG-oQ-wRo">
-                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="18"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Heavy" family="SF UI Display" pointSize="21"/>
                                         <state key="normal" title="Download">
                                             <color key="titleColor" red="0.88235294117647056" green="0.17254901960784313" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -130,20 +129,20 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="separator_icon" translatesAutoresizingMaskIntoConstraints="NO" id="O4j-c6-JTI">
-                                        <rect key="frame" x="166.5" y="0.0" width="1" height="18"/>
+                                        <rect key="frame" x="259.5" y="0.0" width="1" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="O4j-c6-JTI" secondAttribute="height" multiplier="1:18" id="qje-YN-HOa"/>
                                             <constraint firstAttribute="width" constant="1" id="wVr-fk-B9s"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hw0-9s-KZP">
-                                        <rect key="frame" x="200.5" y="0.0" width="133.5" height="18"/>
+                                        <rect key="frame" x="312" y="0.0" width="208" height="18"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Heavy" family="SF UI Display" pointSize="21"/>
-                                        <state key="normal" title="Favourite">
+                                        <state key="normal" title="Favorite">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="favouriteButtonClicked:" destination="dnr-Gl-AaX" eventType="touchUpInside" id="jpr-3s-DvE"/>
+                                            <action selector="favoriteButtonClicked:" destination="dnr-Gl-AaX" eventType="touchUpInside" id="jpr-3s-DvE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -153,14 +152,14 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel_icon" translatesAutoresizingMaskIntoConstraints="NO" id="DO3-ps-pcC">
-                                <rect key="frame" x="36" y="100" width="12" height="12"/>
+                                <rect key="frame" x="36" y="56" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DO3-ps-pcC" secondAttribute="height" multiplier="1:1" id="Wb4-cb-0FP"/>
                                     <constraint firstAttribute="width" constant="12" id="Zml-9e-goG"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfA-Yh-WlI">
-                                <rect key="frame" x="19" y="83" width="46" height="46"/>
+                                <rect key="frame" x="19" y="39" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SfA-Yh-WlI" secondAttribute="height" multiplier="1:1" id="PQ0-oU-GzI"/>
                                     <constraint firstAttribute="width" constant="46" id="sCE-9g-IX0"/>
@@ -191,7 +190,7 @@
                     <connections>
                         <outlet property="collectionView" destination="D9Z-te-foJ" id="Z6w-6L-LNh"/>
                         <outlet property="downloadButton" destination="8bG-oQ-wRo" id="r5H-Vu-mNf"/>
-                        <outlet property="favouriteButton" destination="Hw0-9s-KZP" id="lgM-05-Pan"/>
+                        <outlet property="favoriteButton" destination="Hw0-9s-KZP" id="lgM-05-Pan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nll-nX-ONA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -201,7 +200,7 @@
     </scenes>
     <resources>
         <image name="cancel_icon" width="12" height="12"/>
-        <image name="favourite_icon" width="23" height="21"/>
+        <image name="favorite_icon" width="128" height="128"/>
         <image name="separator_icon" width="1" height="18"/>
     </resources>
 </document>

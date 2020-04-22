@@ -20,6 +20,43 @@ struct Utilities {
             imageView.kf.setImage(with: imageResource)
         }
     }
+    
+    static func getFileLocalPathByUrl(fileUrl: URL) -> URL? {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let destinationUrl = documentsUrl!.appendingPathComponent(fileUrl.lastPathComponent)
+            
+        if FileManager().fileExists(atPath: destinationUrl.path) {
+            return destinationUrl
+        }
+      
+        return nil
+    }
+    
+    static func storeFileLocally(photo: Photo, remoteFileUrl: URL, data: NSData?) {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let destinationUrl = documentsUrl!.appendingPathComponent(remoteFileUrl.lastPathComponent)
+            
+        if let data = data {
+            if data.write(to: destinationUrl, atomically: true) {
+                updateLocalImages(photo: photo)
+            }
+        }
+    }
+    
+    static func updateLocalImages(photo: Photo) {
+        let data = UserDefaults.standard.object(forKey: "localImages") as? NSData
+        do {
+            var finalArray = data != nil ? try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data! as Data) as? [Photo] : [Photo]()
+            if let index = finalArray!.firstIndex(where: { $0.id == photo.id }) {
+                finalArray![index] = photo
+            } else {
+                photo.isLocal = true
+                finalArray!.append(photo)
+            }
+            let savedArray = try? NSKeyedArchiver.archivedData(withRootObject: finalArray!, requiringSecureCoding: false) as NSData
+            UserDefaults.standard.set(savedArray, forKey: "localImages")
+        }
+    }
 }
 
 extension UIView {

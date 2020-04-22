@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		927C74011170B44AE9F527DC /* Pods_ImSplash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DC4BFECCF9F7BC8830A802 /* Pods_ImSplash.framework */; };
 		CF1189D1244E8D23000F3D6A /* UnsplashHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1189D0244E8D23000F3D6A /* UnsplashHomeViewController.swift */; };
 		CF1189D3244E8D35000F3D6A /* UnsplashHomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1189D2244E8D35000F3D6A /* UnsplashHomeStoryboard.storyboard */; };
 		CF1189D5244E8D4B000F3D6A /* UnsplashHomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1189D4244E8D4B000F3D6A /* UnsplashHomeAPI.swift */; };
@@ -30,6 +29,7 @@
 		CF5518AA244E86610082090C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5518A9244E86610082090C /* SceneDelegate.swift */; };
 		CF5518B1244E86610082090C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5518B0244E86610082090C /* Assets.xcassets */; };
 		CF5518B4244E86610082090C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5518B2244E86610082090C /* LaunchScreen.storyboard */; };
+		CFE4ADCA244FC57400D1B8A7 /* Pods_ImSplash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DC4BFECCF9F7BC8830A802 /* Pods_ImSplash.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927C74011170B44AE9F527DC /* Pods_ImSplash.framework in Frameworks */,
+				CFE4ADCA244FC57400D1B8A7 /* Pods_ImSplash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -466,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -481,6 +481,7 @@
 			baseConfigurationReference = 5E4BCC43CB875E7483D46EDA /* Pods-ImSplash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D5L66SASF9;
 				INFOPLIST_FILE = ImSplash/Info.plist;
@@ -491,6 +492,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackd1209.ImSplash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -501,6 +503,7 @@
 			baseConfigurationReference = EFAF3D094EA0B1592C67E44E /* Pods-ImSplash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D5L66SASF9;
 				INFOPLIST_FILE = ImSplash/Info.plist;
@@ -511,6 +514,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackd1209.ImSplash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

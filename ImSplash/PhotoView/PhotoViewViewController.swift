@@ -9,13 +9,13 @@
 import UIKit
 import Kingfisher
 
-class PhotoViewViewController: UIViewController {
+class PhotoViewViewController: UIViewController, URLSessionDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileUsernameLabel: UILabel!
-    @IBOutlet weak var favouriteImageView: UIImageView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     
     var photo: Photo!
     
@@ -33,7 +33,7 @@ class PhotoViewViewController: UIViewController {
     }
     
     private func loadUI() {
-        favouriteImageView.image = photo.isFavourite ? UIImage(named: "favourite_icon_filled") : UIImage(named: "favourite_icon")
+        favoriteImageView.image = photo.isFavorite ? UIImage(named: "favorite_icon_filled") : UIImage(named: "favorite_icon")
     }
     
     private func loadData() {
@@ -51,16 +51,45 @@ class PhotoViewViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func favouriteButtonClicked(_ sender: Any) {
-        if favouriteImageView.image == UIImage(named: "favourite_icon") {
-            favouriteImageView.image = UIImage(named: "favourite_icon_filled")
-            photo.isFavourite = true
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        if favoriteImageView.image == UIImage(named: "favorite_icon") {
+            favoriteImageView.image = UIImage(named: "favorite_icon_filled")
+            photo.isFavorite = true
         } else {
-            favouriteImageView.image = UIImage(named: "favourite_icon")
-            photo.isFavourite = false
+            favoriteImageView.image = UIImage(named: "favorite_icon")
+            photo.isFavorite = false
         }
     }
     
     @IBAction func downloadButtonClicked(_ sender: Any) {
+        if let url = URL(string: photo.photoURLFull) {
+            if let _ = Utilities.getFileLocalPathByUrl(fileUrl: url) {
+                let alert = UIAlertController.init(title: "Download Image", message: "The file already downloaded", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+            let downloadTask = session.downloadTask(with: url)
+            photo.isDownloading = true
+            downloadTask.resume()
+        }
+    }
+}
+
+extension PhotoViewViewController: URLSessionDownloadDelegate {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        photo.isDownloading = false
+        let url = downloadTask.originalRequest!.url
+
+        if let data = NSData(contentsOf: location) {
+            Utilities.storeFileLocally(photo: photo, remoteFileUrl: url!, data: data)
+        }
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite) * 100
+        photo.downloadProgress = "\(Int(progress))%"
     }
 }

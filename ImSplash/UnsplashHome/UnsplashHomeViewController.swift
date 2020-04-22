@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 import Kingfisher
 
 class UnsplashHomeViewController: UIViewController {

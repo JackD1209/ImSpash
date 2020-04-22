@@ -67,7 +67,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qpu-Cf-zhZ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qpu-Cf-zhZ">
                                         <rect key="frame" x="364" y="54" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="RN6-LT-reu"/>
@@ -88,7 +88,7 @@
                                             <constraint firstAttribute="width" constant="46" id="xn9-Xm-ml4"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="favouriteButtonClicked:" destination="ewy-er-fxI" eventType="touchUpInside" id="8iO-Xe-DaV"/>
+                                            <action selector="favoriteButtonClicked:" destination="ewy-er-fxI" eventType="touchUpInside" id="8iO-Xe-DaV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjy-NN-i5o">
@@ -97,6 +97,9 @@
                                             <constraint firstAttribute="width" constant="46" id="gSm-AU-Fuc"/>
                                             <constraint firstAttribute="width" secondItem="Tjy-NN-i5o" secondAttribute="height" multiplier="1:1" id="haa-39-Lz8"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="downloadButtonClicked:" destination="ewy-er-fxI" eventType="touchUpInside" id="MSc-pz-YP8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -134,7 +137,7 @@
                         <viewLayoutGuide key="safeArea" id="CJB-iL-Htx"/>
                     </view>
                     <connections>
-                        <outlet property="favouriteImageView" destination="Qpu-Cf-zhZ" id="hAW-yV-bXZ"/>
+                        <outlet property="favoriteImageView" destination="Qpu-Cf-zhZ" id="hAW-yV-bXZ"/>
                         <outlet property="imageView" destination="4uj-na-YIe" id="T25-7X-S0N"/>
                         <outlet property="profileImageView" destination="9pC-Qs-XrY" id="2ZO-zJ-CuC"/>
                         <outlet property="profileNameLabel" destination="sAo-Ve-j6n" id="aWb-Vd-kbX"/>
@@ -149,6 +152,6 @@
     <resources>
         <image name="cancel_icon" width="12" height="12"/>
         <image name="download_icon" width="20" height="22"/>
-        <image name="favourite_icon" width="23" height="21"/>
+        <image name="favorite_icon" width="23" height="21"/>
     </resources>
 </document>

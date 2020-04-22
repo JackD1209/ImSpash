@@ -9,10 +9,10 @@
 import UIKit
 
 class CollectionsViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var downloadButton: UIButton!
-    @IBOutlet weak var favouriteButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     private var photoThumbSize: CGFloat = 0
     var photos: [Photo] = []
@@ -20,7 +20,7 @@ class CollectionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadUI()
         loadData()
     }
@@ -41,8 +41,27 @@ class CollectionsViewController: UIViewController {
     }
     
     private func loadData() {
-        filtedPhotos = photos
+        filtedPhotos = photos.filter { $0.isDownloading || $0.isFavorite }
+        getLocalImages()
         collectionView.reloadData()
+    }
+    
+    private func getLocalImages() {
+        let data = UserDefaults.standard.object(forKey: "localImages") as? NSData
+        do {
+            let imageArray = data != nil ? try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data! as Data) as? [Photo] : [Photo]()
+            filtedPhotos.append(contentsOf: imageArray!)
+        }
+    }
+    
+    private func filterPhotoForDownload() {
+        filtedPhotos = photos.filter { $0.isDownloading || $0.isFavorite }
+        getLocalImages()
+    }
+    
+    private func filterPhotoForFavorite() {
+        filterPhotoForDownload()
+        filtedPhotos = filtedPhotos.filter { $0.isFavorite }
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
@@ -50,16 +69,16 @@ class CollectionsViewController: UIViewController {
     }
     
     @IBAction func downloadButtonClicked(_ sender: Any) {
-        favouriteButton.setTitleColor(.black, for: .normal)
+        favoriteButton.setTitleColor(.black, for: .normal)
         downloadButton.setTitleColor(UIColor(hexString: "E12C1C"), for: .normal)
-        filtedPhotos = photos
+        filterPhotoForDownload()
         collectionView.reloadData()
     }
     
-    @IBAction func favouriteButtonClicked(_ sender: Any) {
-        favouriteButton.setTitleColor(UIColor(hexString: "E12C1C"), for: .normal)
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        favoriteButton.setTitleColor(UIColor(hexString: "E12C1C"), for: .normal)
         downloadButton.setTitleColor(.black, for: .normal)
-        filtedPhotos = photos.filter { $0.isFavourite }
+        filterPhotoForFavorite()
         collectionView.reloadData()
     }
 }
