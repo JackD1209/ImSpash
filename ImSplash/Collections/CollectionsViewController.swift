@@ -43,7 +43,7 @@ class CollectionsViewController: UIViewController {
             layout.delegate = self
         }
         collectionView.backgroundColor = .clear
-        photoThumbSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+        photoThumbSize = (view.frame.size.width - 60 - 10) / 2
     }
     
     func loadData() {
