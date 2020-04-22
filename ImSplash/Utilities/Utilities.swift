@@ -19,7 +19,14 @@ struct Utilities {
             var imageResource = ImageResource(downloadURL: imageURL)
             imageResource = ImageResource(downloadURL: imageURL, cacheKey: id)
             imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with: imageResource)
+            imageView.kf.setImage(with: imageResource) { result in
+               switch result {
+               case .success(let value):
+                   imageView.imageWithFade = value.image
+               case .failure( _):
+                   print("Failed to load image")
+               }
+           }
         }
     }
     
@@ -78,6 +85,13 @@ struct Utilities {
                 collectionView?.loadData()
             }
         }
+    }
+}
+
+extension UIImageView {
+    var imageWithFade: UIImage? {
+        get { return self.image }
+        set { UIView.transition(with: self, duration: 0.75, options: .transitionCrossDissolve, animations: { self.image = newValue }, completion: nil) }
     }
 }
 

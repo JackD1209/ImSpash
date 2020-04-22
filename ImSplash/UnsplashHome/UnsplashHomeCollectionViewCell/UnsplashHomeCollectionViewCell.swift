@@ -56,7 +56,6 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
