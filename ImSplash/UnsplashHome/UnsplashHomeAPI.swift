@@ -19,7 +19,6 @@ class UnsplashHomeAPI {
         photoWidth = width
         let url = APIConstants.BASE_URL + "photos"
         let parameters: Parameters = [
-            "w": width,
             "page": page
         ]
         
@@ -48,7 +47,7 @@ class UnsplashHomeAPI {
             photo.profileName = jsonPhoto["user"]["name"].stringValue
             photo.profileUsername = jsonPhoto["user"]["username"].stringValue
             photo.profileImage = jsonPhoto["user"]["profile_image"]["small"].stringValue
-            photo.photoURLThumb = jsonPhoto["urls"]["raw"].stringValue
+            photo.photoURLThumb = jsonPhoto["urls"]["thumb"].stringValue
             photo.photoURLFull = jsonPhoto["urls"]["full"].stringValue
             photo.photoURLRegular = jsonPhoto["urls"]["regular"].stringValue
                         
