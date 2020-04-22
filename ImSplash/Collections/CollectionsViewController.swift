@@ -29,7 +29,13 @@ class CollectionsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
+        Utilities.collectionView = self
         collectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Utilities.collectionView = nil
     }
     
     private func loadUI() {
@@ -40,9 +46,8 @@ class CollectionsViewController: UIViewController {
         photoThumbSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
     }
     
-    private func loadData() {
-        filtedPhotos = photos.filter { $0.isDownloading || $0.isFavorite }
-        getLocalImages()
+    func loadData() {
+        filterPhotoForDownload()
         collectionView.reloadData()
     }
     

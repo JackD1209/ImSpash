@@ -59,6 +59,8 @@ class PhotoViewViewController: UIViewController, URLSessionDelegate {
             favoriteImageView.image = UIImage(named: "favorite_icon")
             photo.isFavorite = false
         }
+        
+        Utilities.updateFavouriteLocalImages(photo: photo)
     }
     
     @IBAction func downloadButtonClicked(_ sender: Any) {
@@ -74,6 +76,10 @@ class PhotoViewViewController: UIViewController, URLSessionDelegate {
             let downloadTask = session.downloadTask(with: url)
             photo.isDownloading = true
             downloadTask.resume()
+            
+            let alert = UIAlertController.init(title: "Download Image", message: "The file will be added into Download Queue", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
     }
 }
@@ -81,6 +87,7 @@ class PhotoViewViewController: UIViewController, URLSessionDelegate {
 extension PhotoViewViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         photo.isDownloading = false
+        Utilities.updateProgress()
         let url = downloadTask.originalRequest!.url
 
         if let data = NSData(contentsOf: location) {
@@ -91,5 +98,6 @@ extension PhotoViewViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite) * 100
         photo.downloadProgress = "\(Int(progress))%"
+        Utilities.updateProgress()
     }
 }

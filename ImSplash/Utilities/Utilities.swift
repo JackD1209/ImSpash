@@ -12,6 +12,8 @@ import Kingfisher
 
 struct Utilities {
     
+    static var collectionView: CollectionsViewController?
+    
     static func loadImage(url: String, imageView: UIImageView, id: String) {
         if let imageURL = URL(string: url) {
             var imageResource = ImageResource(downloadURL: imageURL)
@@ -55,6 +57,26 @@ struct Utilities {
             }
             let savedArray = try? NSKeyedArchiver.archivedData(withRootObject: finalArray!, requiringSecureCoding: false) as NSData
             UserDefaults.standard.set(savedArray, forKey: "localImages")
+        }
+    }
+    
+    static func updateFavouriteLocalImages(photo: Photo) {
+        let data = UserDefaults.standard.object(forKey: "localImages") as? NSData
+        do {
+            var finalArray = data != nil ? try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data! as Data) as? [Photo] : [Photo]()
+            if let index = finalArray!.firstIndex(where: { $0.id == photo.id }) {
+                finalArray![index] = photo
+            }
+            let savedArray = try? NSKeyedArchiver.archivedData(withRootObject: finalArray!, requiringSecureCoding: false) as NSData
+            UserDefaults.standard.set(savedArray, forKey: "localImages")
+        }
+    }
+    
+    static func updateProgress() {
+        if collectionView != nil {
+            DispatchQueue.main.async {
+                collectionView?.loadData()
+            }
         }
     }
 }
