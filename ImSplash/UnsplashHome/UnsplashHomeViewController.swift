@@ -16,7 +16,7 @@ class UnsplashHomeViewController: UIViewController {
     private var photoThumbSize: CGFloat = 0
     private var photos: [Photo] = []
     private var currentPage: Int = 1
-    private var isWating: Bool = false
+    private var isLoading: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +40,13 @@ class UnsplashHomeViewController: UIViewController {
     }
     
     private func loadData() {
-        isWating = true
+        isLoading = true
         UnsplashHomeAPI.fetchPhotos(page: currentPage, width: Int(photoThumbSize), callback: { [weak self] photos, error in
             guard let self = self else { return }
             guard error == nil else { return }
             
             self.photos.append(contentsOf: photos)
-            self.isWating = false
+            self.isLoading = false
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -85,17 +85,13 @@ extension UnsplashHomeViewController: UICollectionViewDelegate, UICollectionView
         present(vc, animated: true, completion: nil)
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y
-//        let contentHeight = scrollView.contentSize.height
-//
-//        if offsetY > contentHeight - scrollView.frame.height {
-//            if !isWating {
-//                currentPage += 1
-//                loadData()
-//            }
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastElement = photos.count - 1
+        if !isLoading && indexPath.row == lastElement {
+            currentPage += 1
+            loadData()
+        }
+    }
 }
 
 extension UnsplashHomeViewController: PinterestLayoutDelegate {
