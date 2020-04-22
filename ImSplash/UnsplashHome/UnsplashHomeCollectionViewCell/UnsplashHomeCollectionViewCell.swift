@@ -11,7 +11,6 @@ import Kingfisher
 
 class UnsplashHomeCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var downloadView: UIView!
     @IBOutlet weak var downloadLabel: UILabel!
@@ -27,7 +26,8 @@ class UnsplashHomeCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCellForDownload(photo: Photo) {
-        containerView.roundCorner()
+        imageView.roundCorner()
+        downloadView.roundCorner()
         layoutIfNeeded()
         
         self.photo = photo

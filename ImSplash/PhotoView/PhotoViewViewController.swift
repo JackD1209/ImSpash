@@ -87,7 +87,6 @@ class PhotoViewViewController: UIViewController, URLSessionDelegate {
 extension PhotoViewViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         photo.isDownloading = false
-        Utilities.updateProgress()
         let url = downloadTask.originalRequest!.url
 
         if let data = NSData(contentsOf: location) {

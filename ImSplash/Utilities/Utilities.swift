@@ -49,6 +49,7 @@ struct Utilities {
         if let data = data {
             if data.write(to: destinationUrl, atomically: true) {
                 updateLocalImages(photo: photo)
+                Utilities.updateFinishedDownload()
             }
         }
     }
@@ -81,6 +82,14 @@ struct Utilities {
     }
     
     static func updateProgress() {
+        if collectionView != nil {
+            DispatchQueue.main.async {
+                collectionView?.collectionView.reloadData()
+            }
+        }
+    }
+    
+    static func updateFinishedDownload() {
         if collectionView != nil {
             DispatchQueue.main.async {
                 collectionView?.loadData()
